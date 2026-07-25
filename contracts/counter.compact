@@ -1,0 +1,31 @@
+pragma language_version >= 0.23;
+
+import CompactStandardLibrary;
+
+// ============================================================================
+// PUBLIC vs PRIVATE — Counter Contract
+// ============================================================================
+//
+// PUBLIC (ledger state — visible on-chain to all observers):
+//   - `count`: The current counter value. Stored on the blockchain as a
+//     Field element. Anyone can read this value at any time.
+//
+// PRIVATE (circuit arguments — known only to the transaction sender):
+//   - `increment`: The amount to add to the counter. Passed as a circuit
+//     argument; the blockchain NEVER sees this value unless it is explicitly
+//     disclosed. Here we only disclose the *result*, not the input.
+//
+// DISCLOSED (deliberately revealed to the blockchain):
+//   - The new counter value after addition is disclosed via `disclose()` so
+//     the ledger state can be updated. The blockchain learns the *result*
+//     but never learns the *input* that produced it.
+// ============================================================================
+
+// Public ledger state — the counter value, stored on-chain
+export ledger count: Field;
+
+// Circuit: increment the counter by a secret amount, then disclose only the result
+export circuit incrementCounter(increment: Field): [] {
+    const newCount = count + increment;
+    count = disclose(newCount);
+}
