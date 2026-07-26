@@ -121,7 +121,7 @@ The test suite exercises:
 
 ## Initial Idea
 
-<!-- TODO: Fill in manually -->
+This project begins as a privacy-preserving counter, but the underlying pattern — a public value updated through a private input, with correctness proven without exposing that input — is the same primitive needed to combat front-running on decentralized exchanges. Currently, DEX order books are completely transparent, allowing MEV bots to observe trade sizes and timing before execution and extract value before trades settle. A first step toward solving this is proving that a single private trade amount satisfies a public constraint, such as a maximum size or price-impact limit, without revealing the trade itself to the network — which is precisely the shape of this project's public-threshold, private-value proof. A future version could expand this into a private order pool, where individual trade sizes, timing, and addresses remain hidden while only aggregate, matched settlement is made public — removing the information asymmetry that bots currently exploit.
 
 ## Screenshots
 
