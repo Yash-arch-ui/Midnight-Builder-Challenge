@@ -7,7 +7,7 @@
 
 | Network  | Address                          |
 |----------|-----------------------------------|
-| Preview  | [NOT YET DEPLOYED]               |
+| Preview  | 374128773d38cdba9a7d211c6f71079a66d1256179d37b76d0213cb76fc18c6c |
 | Preprod  | [NOT YET DEPLOYED]               |
 
 ## What This Does
@@ -125,4 +125,11 @@ This project begins as a privacy-preserving counter, but the underlying pattern 
 
 ## Screenshots
 
-<!-- TODO: Add compile output and contract address screenshots -->
+**Successful Compile Output:**
+![Compile output](screenshots/CircuitCompiled.png)
+
+**Tests Passing:**
+![Tests passing](screenshots/TESTSDONE.png)
+
+**Deployed Contract:**
+![Deployed contract](screenshots/DeployedAddress.png)
