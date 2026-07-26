@@ -7,7 +7,10 @@
   "license": "MIT",
   "scripts": {
     "compile": "compact compile contracts/counter.compact contracts/managed/counter",
-    "build": "npx tsc --noEmit || true",
+    "dev": "vite",
+    "build": "tsc -p tsconfig.app.json --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
     "setup": "npx tsx src/setup.ts",
     "deploy": "npx tsx src/deploy.ts",
     "cli": "npx tsx src/cli.ts",
@@ -15,7 +18,7 @@
     "network": "npx tsx src/network.ts",
     "proof-server:start": "docker compose up -d",
     "proof-server:stop": "docker compose down",
-    "clean": "rm -rf contracts/managed .midnight-state.json .midnight-wallet-state",
+    "clean": "rm -rf contracts/managed .midnight-state.json .midnight-wallet-state dist",
     "test": "vitest run",
     "test:e2e": "tsx scripts/e2e-check.ts"
   },
@@ -33,14 +36,20 @@
     "@midnight-ntwrk/midnight-js-types": "4.1.1",
     "@midnight-ntwrk/midnight-js-utils": "4.1.1",
     "@midnight-ntwrk/wallet-sdk": "1.2.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "rxjs": "^7.8.2",
     "ws": "^8.21.1"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
     "@types/ws": "^8.18.1",
+    "@vitejs/plugin-react": "^4.5.0",
     "tsx": "^4.23.1",
-    "typescript": "^6.0.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.0",
     "vitest": "^4.1.10"
   },
   "engines": {

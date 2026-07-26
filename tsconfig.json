@@ -16,5 +16,11 @@
     "sourceMap": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "contracts/managed"]
+  "exclude": [
+    "node_modules",
+    "dist",
+    "contracts/managed",
+    "src/**/*.tsx",
+    "src/vite-env.d.ts"
+  ]
 }
